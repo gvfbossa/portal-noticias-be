@@ -19,12 +19,37 @@ services:
     image: bossaws2024/portal-noticias-be:latest
     container_name: portal-noticias-backend
     restart: unless-stopped
-    ports:
-      - "${SERVER_PORT}:${SERVER_PORT}"
+    expose:
+      - "${SERVER_PORT}"  # expõe apenas internamente para o Nginx
     env_file:
       - .env
     depends_on:
       - db
+
+  nginx:
+    image: nginx:latest
+    container_name: portal-noticias-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/certbot/www:/var/www/certbot
+      - ./nginx/certbot/conf:/etc/letsencrypt
+      - ./logs/nginx:/var/log/nginx
+    depends_on:
+      - app
+
+  certbot:
+    image: certbot/certbot
+    container_name: portal-noticias-certbot
+    volumes:
+      - ./nginx/certbot/www:/var/www/certbot
+      - ./nginx/certbot/conf:/etc/letsencrypt
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do sleep 12h & wait $${!}; certbot renew; done;'"
+    depends_on:
+      - nginx
 
 volumes:
   db_data:

@@ -12,12 +12,16 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class PortalNoticiasBackEndApplication {
 
     public static void main(String[] args) {
-        Dotenv dotenv = Dotenv.configure()
-                .filename(".env.dev")
-                .load();
 
-        dotenv.entries().forEach(entry -> System.setProperty(entry.getKey(), entry.getValue()));
+        String env = System.getenv("ENV");
 
+        if (!"docker".equals(env)) {
+            Dotenv dotenv = Dotenv.configure()
+                    .filename(".env.dev")
+                    .load();
+
+            dotenv.entries().forEach(entry -> System.setProperty(entry.getKey(), entry.getValue()));
+        }
         SpringApplication.run(PortalNoticiasBackEndApplication.class, args);
     }
 
