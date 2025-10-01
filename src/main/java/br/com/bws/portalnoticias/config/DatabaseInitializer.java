@@ -318,7 +318,7 @@ public class DatabaseInitializer {
 
     private void createUsuario() {
         if (usuarioService.retornaUsuario() != null) {
-            logger.info("Criando usuário Sistema");
+            logger.info("Criando usuário para o Sistema");
 
             Usuario usuario = new Usuario();
             usuario.setUsername("admin");
