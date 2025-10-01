@@ -312,7 +312,7 @@ public class DatabaseInitializer {
                     dataExpiracao
             );
         } catch (IOException e) {
-            logger.error("Ocorreu um erro ao popular os Anúncios do Portfolio. Erro: {}", e.getMessage());
+            logger.error("Ocorreu um erro ao popular os anúncios do Portfolio. Erro: {}", e.getMessage());
         }
     }
 
