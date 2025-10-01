@@ -17,7 +17,7 @@ WORKDIR /app
 # Criar usuário não-root (opcional mas recomendado)
 RUN addgroup --system spring && adduser --system --ingroup spring spring
 
-COPY --from=build /app/target/app.jar app.jar
+COPY --from=build /app/target/portal-noticias-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 9443
 
 ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0"
