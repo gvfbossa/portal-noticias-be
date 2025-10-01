@@ -286,7 +286,7 @@ public class DatabaseInitializer {
             return;
         }
 
-        logger.info("Adicionando os Anúncios ao Portfólio");
+        logger.info("Adicionando Anúncios ao Portfólio");
 
         LocalDate dataExpiracao = LocalDate.of(2030, 12, 31);
 
