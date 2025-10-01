@@ -16,7 +16,7 @@ services:
       - db_data:/var/lib/mysql
 
   app:
-    build: .
+    image: bossaws2024/portal-noticias-be:latest
     container_name: portal-noticias-backend
     restart: unless-stopped
     ports:
