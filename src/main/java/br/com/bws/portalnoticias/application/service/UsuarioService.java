@@ -18,7 +18,7 @@ public class UsuarioService {
     }
 
     public Usuario retornaUsuario() {
-        return usuarioRepository.findAll().getFirst();
+        return usuarioRepository.findAll().stream().findFirst().orElse(null);
     }
 
 }
