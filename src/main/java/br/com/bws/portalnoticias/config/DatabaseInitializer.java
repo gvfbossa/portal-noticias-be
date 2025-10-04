@@ -317,7 +317,7 @@ public class DatabaseInitializer {
     }
 
     private void createUsuario() {
-        if (usuarioService.retornaUsuario() == null) {
+        if (usuarioService.retornaUsuario() == null) { //Cria usuario se nao houver nenhum
             logger.info("Criando usuário para o Sistema");
 
             Usuario usuario = new Usuario();
