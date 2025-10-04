@@ -322,7 +322,7 @@ public class DatabaseInitializer {
 
             Usuario usuario = new Usuario();
             usuario.setUsername("admin");
-            passwordEncoder.encode("YWRtaW4xMjM="); //admin123 em encoded Base64
+            usuario.setPassword(passwordEncoder.encode("YWRtaW4xMjM=")); //admin123 em encoded Base64
             usuarioService.adicionarUsuario(usuario);
         }
     }
