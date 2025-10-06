@@ -5,7 +5,6 @@ import br.com.bws.portalnoticias.web.dto.PagedResponse;
 import br.com.bws.portalnoticias.application.service.NoticiaService;
 import br.com.bws.portalnoticias.domain.model.Category;
 import br.com.bws.portalnoticias.domain.model.Type;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
