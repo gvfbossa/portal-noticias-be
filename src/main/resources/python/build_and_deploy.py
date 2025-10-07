@@ -36,4 +36,5 @@ run_command("Instalando build localmente", "mvn install", cwd=MS_PATH)
 
 build_and_push_docker(MS_PATH)
 
+# ---- Fim
 print("\nMicrosserviço buildado e atualizado com sucesso!")
